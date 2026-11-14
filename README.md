@@ -37,5 +37,4 @@ Requires Node 20+.
 
 Routes: `/dashboard` (gateway savings), `/extension` (chat demo), `/developer` (VS Code plugin demo).
 
-## Team
-Bethany, Khulthum, Nnamdi, Prince, Will
+
