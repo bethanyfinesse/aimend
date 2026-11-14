@@ -1,41 +1,41 @@
 # AiMEND · Making AI a little less thirsty
 
-Hackathon demo. React + Vite + Tailwind, no backend.
+Built at the **NSBE AI Impact-a-thon** (Fall Regional Conference 2026).
 
 **Live demo:** https://bethanyfinesse.github.io/aimend/
 
-## What it is
+## The idea
+The challenge asked us to use AI to tackle an environmental problem, and AI itself is one: data centers use huge amounts of water to cool their servers, and nobody can see the cost of their prompts. AiMEND (AI + mend) is AI making amends: a small, efficient AI that reduces the work of big, water-hungry models. It suggests, explains, and lets you decide. It never blocks you.
 
-AI models use a lot of water and electricity, and much of that is wasted on oversized models and wordy prompts. AiMEND shows how to cut it, in three places people already work:
+## Two products, one engine
+- **AiMEND Extension** (everyday users): works inside AI chatbots
+- **AiMEND Gateway** (companies and developers): sits between apps and AI providers, with a VS Code plugin and a savings dashboard
 
-- **Water Wallet:** estimates the water each prompt costs.
-- **EcoPrompt:** suggests shorter prompts that get the same answer.
-- **Smart Route:** sends simple questions to a smaller, cheaper model.
-- **Peak Alert:** flags high-demand hours so work can shift to off-peak.
+## Features
+- **Water Wallet:** shows each prompt's estimated water cost, weighted by drought risk, with a daily budget
+- **Peak Alert:** flags higher-water hours and lets non-urgent work wait
+- **EcoPrompt:** underlines wasteful prompt text, like spellcheck
+- **Smart Route:** sends each request to the smallest option that can handle it: no AI, a small model, or a big model
 
-All numbers are demo data and estimates, not measurements.
+## How the AI works
+Smart Route runs `Xenova/all-MiniLM-L6-v2` (about 22M parameters, ~23 MB) in the browser via Transformers.js. It embeds each prompt and compares it to example simple and complex questions using cosine similarity. Simple questions get answered without a large model. If the model can't load, it falls back to keyword rules.
+
+## Real vs. simulated
+- **Real:** the Smart Route AI model, prompt-trimming rules, cost and water math, calculator answers
+- **Simulated:** chatbot replies, dashboard data, data center regions and drought scores, peak hours
+
+All water and cost numbers are estimates based on published research, not measurements.
+
+## Tech stack
+React, Vite, Tailwind CSS, React Router, Recharts, Monaco Editor, math.js, Transformers.js. No backend. Built with help from Claude Code.
 
 ## Run locally
-
 Requires Node 20+.
 
-```bash
-npm install
-npm run dev        # http://localhost:5173
-```
+    npm install
+    npm run dev
 
-Routes (switch with the floating nav at the bottom):
+Routes: `/dashboard` (gateway savings), `/extension` (chat demo), `/developer` (VS Code plugin demo).
 
-- `/dashboard`: gateway savings for companies (demo data)
-- `/extension`: chat assistant with Water Wallet, Peak Alert, EcoPrompt, Smart Route
-- `/developer`: VS Code-style Monaco editor with EcoPrompt markers + quick fixes, Smart Route / Peak Alert CodeLenses
-
-Smart Route runs `Xenova/all-MiniLM-L6-v2` in the browser via `@huggingface/transformers`
-(about 23 MB on first load, then cached). The badge at the bottom right shows "AiMEND model ready", or "Fallback mode" (keyword rules) if the model can't load.
-Monaco and the model both download from CDNs, so the first load needs internet.
-
-Demo tips: click the Peak Alert dot in the chat status pill to toggle peak/off-peak. Click an underlined phrase in the chat input to open EcoPrompt.
-
-## Deploy
-
-Pushing to `main` builds the site and publishes it to GitHub Pages through `.github/workflows/deploy.yml`. In the repo settings, Pages → Source must be set to GitHub Actions.
+## Team
+Bethany, Khulthum, Nnamdi, Prince, Will
