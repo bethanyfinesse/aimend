@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-ink: #E6F0EE;
+  --color-muted: #8FA5A2;
+  --color-teal: #5FD0CB;
+  --color-teal-2: #3FB0B4;
+  --color-mint: #9EE6B9;
+  --color-amber: #F5C27A;
+  --color-base: #081113;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: #081113;
+  color: #E6F0EE;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dashboard glass card */
+.glass {
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+}
+.glass-inner {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+/* Embedded AiMEND component (extension + developer) */
+.frost {
+  background: rgba(40, 46, 48, 0.72);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.06));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #7FE0DA, #3FB0B4);
+  color: #06201F;
+  font-weight: 600;
+}
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E6F0EE;
+}
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.08); }
+
+.pill-teal {
+  background: rgba(95, 208, 203, 0.16);
+  border: 1px solid rgba(95, 208, 203, 0.28);
+  color: #9fe3df;
+}
+
+.eco-mark {
+  text-decoration: underline dotted #5FD0CB;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.eco-mark:hover { background: rgba(95, 208, 203, 0.12); border-radius: 3px; }
+
+.num-light { font-weight: 300; letter-spacing: -0.02em; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.fade-up { animation: fadeUp 0.35s ease both; }
+
+@keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+.slide-in { animation: slideIn 0.3s ease both; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* AiMEND look for Monaco's hover card and CodeLens */
+.monaco-editor .monaco-hover {
+  background: rgba(48, 52, 54, 0.88) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  font-family: var(--font-sans) !important;
+}
+.monaco-editor .monaco-hover .hover-row.status-bar { background: rgba(255, 255, 255, 0.04) !important; }
+.monaco-editor .codelens-decoration {
+  display: inline-block !important;
+  width: auto !important;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  line-height: 18px !important;
+}
+.monaco-editor .codelens-decoration .codicon-circle-filled { color: #5FD0CB !important; font-size: 9px !important; }
+.monaco-editor .codelens-decoration .codicon-clock { color: #F5C27A !important; }
+.monaco-editor .codelens-decoration a:hover { color: #5FD0CB !important; }
