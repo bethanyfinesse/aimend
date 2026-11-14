@@ -2,6 +2,23 @@
 
 Hackathon demo. React + Vite + Tailwind, no backend.
 
+**Live demo:** https://bethanyfinesse.github.io/aimend/
+
+## What it is
+
+AI models use a lot of water and electricity, and much of that is wasted on oversized models and wordy prompts. AiMEND shows how to cut it, in three places people already work:
+
+- **Water Wallet:** estimates the water each prompt costs.
+- **EcoPrompt:** suggests shorter prompts that get the same answer.
+- **Smart Route:** sends simple questions to a smaller, cheaper model.
+- **Peak Alert:** flags high-demand hours so work can shift to off-peak.
+
+All numbers are demo data and estimates, not measurements.
+
+## Run locally
+
+Requires Node 20+.
+
 ```bash
 npm install
 npm run dev        # http://localhost:5173
@@ -18,3 +35,7 @@ Smart Route runs `Xenova/all-MiniLM-L6-v2` in the browser via `@huggingface/tran
 Monaco and the model both download from CDNs, so the first load needs internet.
 
 Demo tips: click the Peak Alert dot in the chat status pill to toggle peak/off-peak. Click an underlined phrase in the chat input to open EcoPrompt.
+
+## Deploy
+
+Pushing to `main` builds the site and publishes it to GitHub Pages through `.github/workflows/deploy.yml`. In the repo settings, Pages → Source must be set to GitHub Actions.
